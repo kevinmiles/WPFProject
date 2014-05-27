@@ -1,0 +1,25 @@
+﻿<Window x:Class="TreeListViewDemo.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                Title="MainWindow" Height="350" Width="600">
+    <Grid>
+        <telerik:RadTreeListView x:Name="radTreeListView" SelectionMode="Extended" Margin="0,25,0,0">
+            <telerik:RadTreeListView.Columns>
+                <telerik:GridViewSelectColumn>
+                    <telerik:GridViewSelectColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="chkPONDelete" IsChecked="{Binding IsEnable, Mode=TwoWay}"></CheckBox>
+                        </DataTemplate>
+                    </telerik:GridViewSelectColumn.CellTemplate>
+                </telerik:GridViewSelectColumn>
+            </telerik:RadTreeListView.Columns>
+            <telerik:RadTreeListView.ChildTableDefinitions>
+                <telerik:TreeListViewTableDefinition ItemsSource="{Binding Items}" />
+            </telerik:RadTreeListView.ChildTableDefinitions>
+        </telerik:RadTreeListView>
+        <telerik:RadToolBar HorizontalAlignment="Left" Height="25" Margin="0" VerticalAlignment="Top" Width="66">
+            <telerik:RadMenuItem Header="测试" Click="RadMenuItem_Click"/>
+        </telerik:RadToolBar>
+    </Grid>
+</Window>
